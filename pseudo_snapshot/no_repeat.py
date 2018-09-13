@@ -21,9 +21,6 @@ new_json_data = []
 for key in data_dict.keys():
     new_json_data.append({"addr": key, "amount": data_dict[key]})
 
-#for i in new_json_data:
-#    print(i)
-
 new_json = json.dumps(new_json_data)
 print(new_json)
 

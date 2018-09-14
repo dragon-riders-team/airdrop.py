@@ -128,10 +128,10 @@ if sys.argv[1] == 'import':
         with open(file) as json_file:
             try:
                 # store some data that might be useful
-                json_raw_data = json.load(json_file)
+                json_data = json.load(json_file)
                 # consolidate multiple entries per address into one per address
-                json_data = one_entry_per_addr(json_raw_data)
-                addresses = json_data['addresses']
+                addresses_raw = json_data['addresses']
+                addresses = one_entry_per_addr(addresses_raw)
                 start_time = json_data['start_time']
                 end_time = json_data['end_time']
                 start_height = json_data['start_height']

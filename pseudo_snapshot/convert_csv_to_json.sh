@@ -9,11 +9,9 @@ string+=$(cat $1 \
 	| sed '$ s/.$//')
 string+="]"
 
-norepeat_string=`echo $string | ./no_repeat.py`
-
 epoch=`date +%s`
 output="{\"start_time\": $epoch, \"addresses\": "
-output+=$norepeat_string
+output+=$string
 output+=',
   "total": 1,
   "average": 1,
@@ -27,4 +25,3 @@ output+=',
 echo $output | jq '.'
 
 exit
-

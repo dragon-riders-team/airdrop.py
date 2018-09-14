@@ -87,22 +87,22 @@ def issent(address):
 
 # we make sure that multiple entries for the same address
 # are summed and made one
-def one_entry_per_addr(json_data):
+def one_entry_per_addr(addresses_data):
     data_dict = {}
-    for i in json_data:
+    for i in addresses_data:
         amount = i['amount']
         try:
             amount += data_dict[i['addr']]
             data_dict[i['addr']] = round(amount, 4)
         except:
             data_dict[i['addr']] = amount
-    new_json_data = []
+    new_addresses_data = []
     for key in data_dict.keys():
-        new_json_data.append({
+        new_addresses_data.append({
             "addr": key,
             "amount": data_dict[key]
         })
-    new_json = json.dumps(new_json_data)
+    new_json = json.dumps(new_addresses_data)
     return(new_json)
 
 

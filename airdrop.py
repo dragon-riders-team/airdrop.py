@@ -102,8 +102,7 @@ def one_entry_per_addr(addresses_data):
             "addr": key,
             "amount": data_dict[key]
         })
-    new_json = json.dumps(new_addresses_data)
-    return(new_json)
+    return(new_addresses_data)
 
 
 # take and process arguments

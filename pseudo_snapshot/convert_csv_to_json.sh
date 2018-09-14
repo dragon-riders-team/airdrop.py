@@ -1,17 +1,17 @@
 #!/bin/bash
 
-string="["
-string+=$(cat $1 \
+addr_array="["
+addr_array+=$(cat $1 \
 	| sed 's/,//g' \
 	| sed 's/^R.*;0\.0000.*//' \
 	| sed '/^\s*$/d' \
 	| perl -lpe 's/(R[\d|\w]+);([\d|\.|\,]+)/  {\n    "addr": "$1",\n    "amount": $2\n  },/' \
 	| sed '$ s/.$//')
-string+="]"
+addr_array+="]"
 
 epoch=`date +%s`
 output="{\"start_time\": $epoch, \"addresses\": "
-output+=$string
+output+=$addr_array
 output+=',
   "total": 1,
   "average": 1,

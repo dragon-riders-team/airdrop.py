@@ -39,7 +39,7 @@ def send_coins(group):
     if not group_dict:
         return
     # define payload for rpc call
-    params = ['', group_dict]
+    params = ['', group_dict, 0]
     payload = {
         "method": "sendmany",
         "params": params}
@@ -133,7 +133,6 @@ if sys.argv[1] == 'import':
                 addresses = one_entry_per_addr(addresses_raw)
                 start_time = json_data['start_time']
                 end_time = json_data['end_time']
-                start_height = json_data['start_height']
                 ending_height = json_data['ending_height']
                 # define database name based on snapshot timestamp
                 database_name = str(start_time) + '.db'

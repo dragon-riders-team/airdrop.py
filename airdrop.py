@@ -115,8 +115,8 @@ except:
         "\nUsage (example):\n" +
         "    " + sys.argv[0] + " import COIN_snapshot.json\n" +
         "or:\n" +
-        "    " + sys.argv[0] + " <snapshot_timestamp>\n" +
-        "(The snapshot name is its creation timestamp.)\n")
+        "    " + sys.argv[0] + " <snapshot_name>\n" +
+        "    (The snapshot name is its creation timestamp.)\n")
     sys.exit(1)
 if sys.argv[1] == 'import':
     # we're in import mode, try to read and import data from json file
